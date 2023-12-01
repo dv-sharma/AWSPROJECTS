@@ -1,0 +1,18 @@
+CREATE EC2 INSTANCE USING KEY PAIR: 
+ aws ec2 run-instances --image-id ami-0fc5d935ebf8bc3bc --count 1 --instance-type t2.micro --key-name crudandread --security-group-ids sg-0bfe20485e6a57f2a  --subnet-id subnet-09a68f7d8804f9cb7
+=======================================================================================================================
+
+VPC ID: vpc-0b0d4057826fd65b6
+SUBNET ID: subnet-09a68f7d8804f9cb7
+
+
+BLOG: https://devopscube.com/use-aws-cli-create-ec2-instance/
+
+aws ec2 authorize-security-group-ingress \
+    --group-id "sg-0bfe20485e6a57f2a" \
+    --protocol tcp \
+    --port 22 \
+    --cidr "0.0.0.0/0" 
+
+TERMINATE INSTANCE
+aws ec2 terminate-instances --instance-ids i-5203422c
